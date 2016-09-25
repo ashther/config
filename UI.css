@@ -1,0 +1,25 @@
+/* i really want this to be global */
+* {
+    font-family: "Ubuntu","WenQuanYi Micro Hei" !important;
+}
+
+code span, /*stackoverflow.com*/
+code, kbd, samp, var {
+    font-family: "Iosevka Medium", "WenQuanYi Micro Hei", monospace !important;
+}
+
+@-moz-document domain("github.com") {
+/* i really want this to be global */
+* {
+    font-family: "Ubuntu","WenQuanYi Micro Hei" !important;
+}
+
+pre,
+pre span,
+tbody tr td span,
+tbody tr td,
+code span,
+code, kbd, samp, var {
+    font-family: "Iosevka Medium", "WenQuanYi Micro Hei", monospace !important;
+}
+}
