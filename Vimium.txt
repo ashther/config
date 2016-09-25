@@ -1,0 +1,8 @@
+map j scrollUp
+map k scrollDown
+
+map h goBack
+map l goForward
+
+map H scrollLeft
+map L scrollRight
