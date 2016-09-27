@@ -1,6 +1,8 @@
 /* i really want this to be global */
+
 * {
     font-family: "Ubuntu","WenQuanYi Micro Hei" !important;
+	/*text-shadow: 0.05em 0.05em 0.2em #999999 !important;*/
 }
 
 pre, 
@@ -9,10 +11,21 @@ code, kbd, samp, var {
     font-family: "Iosevka Medium", "WenQuanYi Micro Hei", monospace !important;
 }
 
-@-moz-document domain("github.com") {
-/* i really want this to be global */
+@-moz-document url("http://10.21.3.101:8787/") {
+* {
+    /*font-family: "Consolas","WenQuanYi Micro Hei" !important;*/
+    font-family: "Iosevka","WenQuanYi Micro Hei" !important;
+}
+
+textarea, pre, code, kbd, samp, var, tt {
+    font-family: "Iosevka", "WenQuanYi Micro Hei", monospace !important;
+}
+}
+
+@-moz-document url-prefix("https://github.com/"), url-prefix("https://gist.github.com") {
 * {
     font-family: "Ubuntu","WenQuanYi Micro Hei" !important;
+    font-size:100%;
 }
 
 pre,
@@ -22,5 +35,22 @@ tbody tr td,
 code span,
 code, kbd, samp, var {
     font-family: "Iosevka Medium", "WenQuanYi Micro Hei", monospace !important;
+    font-size:110%;
+}
+}
+
+@-moz-document url-prefix("https://www.codecademy.com") {
+* {
+    font-family: "Ubuntu","WenQuanYi Micro Hei" !important;
+	/*text-shadow: 0.05em 0.05em 0.2em #999999 !important;*/
+}
+
+pre, 
+code span, /*stackoverflow.com*/
+pre span span, /*codecademy.com*/
+div span, 
+code, kbd, samp, var {
+    font-family: "Iosevka Medium", "WenQuanYi Micro Hei", monospace !important;
+    font-size:120%;
 }
 }
