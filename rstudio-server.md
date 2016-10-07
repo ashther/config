@@ -1,0 +1,5 @@
+- rstudio-server的安装
+- shiny-server的安装
+- R的安装
+- 用户创建和加入sudoers
+- shiny用户安装shiny等包（yum list R-\*）https://groups.google.com/forum/#!topic/shiny-discuss/HSY6YvHAw3U
