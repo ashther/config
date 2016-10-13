@@ -9,8 +9,8 @@ code, kbd, samp, var {
     font-family: "Iosevka Medium", "WenQuanYi Micro Hei", monospace !important;
 }
 
-@-moz-document domain("github.com") {
 
+@-moz-document domain("github.com") {
 pre span,
 tbody tr td span, 
 tbody tr td {
@@ -28,16 +28,24 @@ input {
 }
 }
 
-@-moz-document url("http://10.21.3.101:8787/") {
-textarea, tt {
+@-moz-document url("http://10.21.3.101:8787/"), url("http://sunlijun.me:8787/") {
+* {
     font-family: "Iosevka", "WenQuanYi Micro Hei", monospace !important;
 }
+
 }
 
-@-moz-document url("http://www.codecademy.com/") {
+@-moz-document domain("www.codecademy.com") {
 pre span span, 
 div span {
     font-family: "Iosevka Medium", "WenQuanYi Micro Hei", monospace !important;
     font-size:120%;
 }
+}
+
+@-moz-document url("http://digg.com/reader") {
+* {
+    font-family: "Ubuntu","STXihei" !important;
+}
+ 
 }
