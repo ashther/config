@@ -1,5 +1,5 @@
 
-[Change Colors](chrome-extension://jbmkekhehjedonbhoikhhkmlapalklgn/options.html)
+[Change Colors](https://chrome.google.com/webstore/detail/change-colors/jbmkekhehjedonbhoikhhkmlapalklgn)
 
 * Background color:	`F3EACB`  
 * Text color:	`704214`  
