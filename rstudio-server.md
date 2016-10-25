@@ -28,11 +28,15 @@ $ sudo restart shiny-server # restart模式不会读取/etc/init/shiny-server.co
 0 6 * * * /sbin/restart shiny-server >/dev/null 2>&1
 ```
 ### R的安装
+#### Linux平台的安装
 ```bash
 $ sudo yum install epel-release
 $ sudo yum update
 $ sudo yum install R
 ```
+#### Windows平台的安装
+选择[镜像](https://cran.r-project.org/mirrors.html)，选择国内镜像比如[清华大学](https://mirrors.tuna.tsinghua.edu.cn/CRAN/)就可以下载安装了
+
 ### 用户创建和加入sudoers
 ```bash
 $ sudo adduser apple
