@@ -2,7 +2,8 @@
 
 /* i really want this to be global */
 * {
-    font-family: "Ubuntu","WenQuanYi Micro Hei" !important;
+    font-family: "Fira Sans","WenQuanYi Micro Hei" !important;
+    /*font-family: "Ubuntu","WenQuanYi Micro Hei" !important;*/
 }
 
 pre,
@@ -21,6 +22,10 @@ tbody tr td {
 
 .blob-code {
 	font-size:110%
+}
+	
+.example_code {
+	font-family: "Iosevka Medium", "WenQuanYi Micro Hei", monospace !important;
 }
 }
 
