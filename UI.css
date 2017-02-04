@@ -7,6 +7,7 @@
 }
 
 pre,
+.r.plain, .r.functions, .r.string, 
 code span, /*stackoverflow.com*/
 code, kbd, samp, var {
     font-family: "Iosevka Medium", "WenQuanYi Micro Hei", monospace !important;
