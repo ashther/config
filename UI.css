@@ -1,24 +1,21 @@
-/* https://userstyles.org/styles/103278/ui */
-
-/* i really want this to be global */
 * {
-    font-family: "Port Lligat Slab","WenQuanYi Micro Hei" !important;
+    font-family: "kreon Light","WenQuanYi Micro Hei" !important;
     /*font-family: "Ubuntu","WenQuanYi Micro Hei" !important;*/
 }
 
-pre,
-.r.plain, .r.functions, .r.string, 
+pre, pre span, 
+.r.plain, .r.functions, .r.string, .r.keyword, 
+code.plain, code.functions, code.string, code.keyword, code.spaces, code.value, 
 code span, /*stackoverflow.com*/
 code, kbd, samp, var {
     font-family: "Iosevka Medium", "WenQuanYi Micro Hei", monospace !important;
 }
 
-
 @-moz-document domain("github.com") {
 pre span,
 tbody tr td span, 
 tbody tr td {
-    font-family: "Iosevka Medium", "WenQuanYi Micro Hei", monospace !important;
+    font-family: "Iosevka", "WenQuanYi Micro Hei", monospace !important;
 }
 
 .blob-code {
@@ -26,7 +23,7 @@ tbody tr td {
 }
 	
 .example_code {
-	font-family: "Iosevka Medium", "WenQuanYi Micro Hei", monospace !important;
+	font-family: "Iosevka", "WenQuanYi Micro Hei", monospace !important;
 }
 }
 
