@@ -3,6 +3,8 @@
 $ wget https://download2.rstudio.org/rstudio-server-rhel-0.99.903-x86_64.rpm
 $ sudo yum install --nogpgcheck rstudio-server-rhel-0.99.903-x86_64.rpm
 
+$ sudo iptables -I INPUT -p tcp --dport 8787 -j ACCEPT # 有可能防火墙未打开8787端口，需要手动开启
+
 $ sudo rstudio-server stop 
 $ sudo rstudio-server start
 $ sudo rstudio-server restart
@@ -34,6 +36,14 @@ $ sudo yum install epel-release
 $ sudo yum update
 $ sudo yum install R
 ```
+
+#### cent OS平台上必要包的安装
+```bash
+$ sudo yum install libcurl-devel
+$ sudo yum install openssl-devel
+$ sudo yum install libxml2-devel
+```
+
 #### Windows平台的安装
 选择[镜像](https://cran.r-project.org/mirrors.html)，选择国内镜像比如[清华大学](https://mirrors.tuna.tsinghua.edu.cn/CRAN/)就可以下载安装了
 
