@@ -62,3 +62,5 @@ sudo R CMD INSTALL --build Rcpp_0.11.1.tar.gz
 wget http://cran.r-project.org/src/contrib/httpuv_1.2.3.tar.gz
 sudo R CMD INSTALL --build httpuv_1.2.3.tar.gz
 ```
+### 关于安装r包能让所有用户使用
+<font color=red size=72>haha</font>
