@@ -63,4 +63,6 @@ wget http://cran.r-project.org/src/contrib/httpuv_1.2.3.tar.gz
 sudo R CMD INSTALL --build httpuv_1.2.3.tar.gz
 ```
 ### 关于安装r包能让所有用户使用
-<font color=red size=72>haha</font>
+```diff
++ 强烈建议使用root用户或者`sudo R`进入R安装各种包，使包能被安装至`/usr/lib64/R/library/`
+```
