@@ -2,6 +2,7 @@
 ```bash
 $ wget https://download2.rstudio.org/rstudio-server-rhel-0.99.903-x86_64.rpm
 $ sudo yum install --nogpgcheck rstudio-server-rhel-0.99.903-x86_64.rpm
+# 升级rstudio-server时可直接覆盖安装，但是升级pro版时需要参考[Rstudio官方文档](https://support.rstudio.com/hc/en-us/articles/216079967-Upgrading-RStudio-Server)
 
 $ sudo iptables -I INPUT -p tcp --dport 8787 -j ACCEPT # 有可能防火墙未打开8787端口，需要手动开启
 
