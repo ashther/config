@@ -30,11 +30,11 @@ sudo docker pull rocker/tidyverse
 ```bash
 FROM rocker/tidyverse
 # 将R包源文件目录复制到镜像中
-COPY for_docker/ /home/rstudio/ 
+COPY for_docker/pkg /pkg
 # 将Rserve配置文件复制到镜像中，方便后续运行镜像中调用该配置文件
 COPY for_docker/Rserv.conf /etc/Rserv.conf
 RUN R -e "\ 
-install.packages(c('text2vec', 'luzlogr', 'Rserve', 'tidytext', 'janeaustenr', 'SnowballC', 'tokenizers'), type = 'source', contriburl = 'file:///home/rstudio/pkg');\
+install.packages(c('text2vec', 'luzlogr', 'Rserve', 'tidytext', 'janeaustenr', 'SnowballC', 'tokenizers', 'jiebaR'), type = 'source', contriburl = 'file:///home/rstudio/pkg');\
 devtools::install_local(path = '/home/rstudio/pkg/widyr-master');"
 EXPOSE 6311
 CMD R CMD Rserve.dbg --vanilla --RS-conf /etc/Rserv.conf
@@ -59,7 +59,8 @@ getPackages <- function(packs){
 ### 运行镜像
 正常启动
 ```bash
-sudo docker run --rm -p 6311:6311 -v /home/ashther/docker_test/for_docker/:/home/rstudio/ -d r-image
+# lib目录包括了各模块R脚本、Rserv_conf.R、log目录、测试db文件等
+sudo docker run --rm -p 6311:6311 -v /home/ashther/lib:/home/rstudio/ -d r-image
 ```
 进入容器进行交互
 ```bash
