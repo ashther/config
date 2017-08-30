@@ -34,8 +34,8 @@ COPY for_docker/pkg /pkg
 # 将Rserve配置文件复制到镜像中，方便后续运行镜像中调用该配置文件
 COPY for_docker/Rserv.conf /etc/Rserv.conf
 RUN R -e "\ 
-install.packages(c('text2vec', 'luzlogr', 'Rserve', 'tidytext', 'janeaustenr', 'SnowballC', 'tokenizers', 'jiebaR'), type = 'source', contriburl = 'file:///home/rstudio/pkg');\
-devtools::install_local(path = '/home/rstudio/pkg/widyr-master');"
+install.packages(c('text2vec', 'luzlogr', 'Rserve', 'tidytext', 'janeaustenr', 'SnowballC', 'tokenizers', 'jiebaR'), type = 'source', contriburl = 'file:///pkg');\
+devtools::install_local(path = '/pkg/widyr-master');"
 EXPOSE 6311
 CMD R CMD Rserve.dbg --vanilla --RS-conf /etc/Rserv.conf
 ```
