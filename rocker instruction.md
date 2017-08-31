@@ -60,8 +60,7 @@ getPackages <- function(packs){
 正常启动
 ```bash
 # lib目录包括了各模块R脚本、Rserv_conf.R、log目录、测试db文件等
-# --rm和-d不能共用
-sudo docker run -p 6311:6311 -v /home/ashther/lib:/home/rstudio/ -d r-image
+sudo docker run --rm -p 6311:6311 -v /home/ashther/lib:/home/rstudio/ -d r-image
 ```
 进入容器进行交互
 ```bash
