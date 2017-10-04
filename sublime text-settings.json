@@ -1,22 +1,31 @@
 {
+	"bold_folder_labels": true,
 	"color_scheme": "Packages/Dracula Color Scheme/Dracula.tmTheme",
+	"default_line_ending": "unix",
+	"draw_minimap_border": true,
+	"ensure_newline_at_eof_on_save": true,
+	"fade_fold_buttons": false,
 	"font_face": "PragmataPro",
+	"font_options":
+	[
+		"gdi"
+	],
 	"font_size": 10,
-	"font_options": ["gdi"],
-	"theme_font_options": ["gdi"],
-	"highlight_line": true, 
-	"fade_fold_buttons": false, 
-	"bold_folder_labels": true, 
-	"rulers": [79], 
-	"tab_size": 2, 
-	"translate_tabs_to_spaces": true, 
-	"draw_minimap_border": true, 
-	"default_line_ending": "unix", 
-	"show_encoding": true,
+	"highlight_line": true,
 	"ignored_packages":
 	[
-		"Package Control",
 		"Vintage"
 	],
-	"theme": "Default.sublime-theme"
+	"rulers":
+	[
+		79
+	],
+	"show_encoding": true,
+	"tab_size": 2,
+	"theme": "Default.sublime-theme",
+	"theme_font_options":
+	[
+		"gdi"
+	],
+	"translate_tabs_to_spaces": true
 }
