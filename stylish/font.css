@@ -1,52 +1,75 @@
 /* i really want this to be global */
 * {
     font-family: "kreon Light","WenQuanYi Micro Hei" !important; 
-    /*font-family: "Port Lligat Slab Larger","WenQuanYi Micro Hei" !important;*/
+    /*font-family: "kreon Light","WenQuanYi Micro Hei" !important;*/
 }
 
-pre, pre span, li span, 
+pre.r a, 
+pre, pre span, li span, pre.rsplus, 
+[action="/sqlcmd-sqlcourse2"] textarea, 
+.container div code, 
+.codeMirrors, 
+.ace_line span, .ace_line,  
 .rsplus, 
 .blob-code, .blob-code span, .blob-num, 
 .r.plain, .r.functions, .r.string, .r.keyword, 
-code.plain, code.functions, code.string, code.keyword, code.spaces, code.value,  
+code.plain, code.functions, code.string, code.keyword, code.spaces, code.value,   
 code span, /*stackoverflow.com*/
+code span a, 
 code, kbd, samp, var {
-    font-family: "Iosevka Medium", "WenQuanYi Micro Hei", monospace !important;
+    font-family: "Monaco", "WenQuanYi Micro Hei", monospace !important;
+    font-size:90%;
 }
 
 
-@-moz-document url-prefix("https://github.com/"), domain("runoob.com") {
-pre span,
-tbody tr td span, 
-tbody tr td {
-    font-family: "Iosevka Medium", "WenQuanYi Micro Hei", monospace !important;
+@-moz-document domain("codecademy.com") {
+pre, pre span, li span, pre.rsplus, 
+.container div code, 
+.codeMirrors, 
+.ace_line span, .ace_line,  
+.rsplus, 
+.blob-code, .blob-code span, .blob-num, 
+.r.plain, .r.functions, .r.string, .r.keyword, 
+code.plain, code.functions, code.string, code.keyword, code.spaces, code.value,   
+code span, /*stackoverflow.com*/
+code span a, 
+code, kbd, samp, var {
+    font-size:100%;
 }
 
-.blob-code {
-	font-size:110%
 }
 
-.example_code {
-	font-family: "Iosevka Medium", "WenQuanYi Micro Hei", monospace !important;
+@-moz-document url("http://23.106.137.247:8787/"), url("http://slj.space:8787/"), url("http://121.43.101.233:8787/"), domain("github.com"), domain("stackoverflow.com"), domain("github.io"), domain("stackexchange.com"), domain("superuser.com"), domain("askubuntu.com") {
+
+pre, pre span, li span, pre.rsplus, 
+/*tbody tr td span,*/ 
+tbody tr td, 
+.example_code, 
+.container div code, 
+.codeMirrors, 
+.ace_line span, .ace_line,  
+.rsplus, 
+.blob-code, .blob-code span, .blob-num, 
+.r.plain, .r.functions, .r.string, .r.keyword, 
+code.plain, code.functions, code.string, code.keyword, code.spaces, code.value,   
+code span, /*stackoverflow.com*/
+code span a, 
+code, kbd, samp, var {
+    font-family: "PragmataPro", "WenQuanYi Micro Hei", monospace !important;
+    font-size:100%;
 }
 }
 
-@-moz-document domain("kiwivm.64clouds.com") {
-input {
-    font-family: "Iosevka Medium", "WenQuanYi Micro Hei", monospace !important;
-}
-}
-
-@-moz-document url("http://sunlijun.me:8787/"), url-prefix("https://www.codecademy.com/"), url-prefix("https://campus.datacamp.com") {
+@-moz-document url("http://23.106.137.247:8787/"), url("http://slj.space:8787/"), url("http://121.43.101.233:8787/"), domain("kiwivm.64clouds.com") {
 * {
-    font-family: "Iosevka","WenQuanYi Micro Hei" !important;
-    
-    /*font-family: "Ubuntu","WenQuanYi Micro Hei" !important;*/
+    font-family: "PragmataPro", "WenQuanYi Micro Hei", monospace !important;
+    font-size:100%;
 }
 }
 
 @-moz-document url("http://digg.com/reader"), url-prefix("https://mail.qq.com") {
 * {
     font-family: "kreon Light","STXihei" !important;
+    /*STXihei*/
 }
 }
