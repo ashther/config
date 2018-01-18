@@ -1,117 +1,71 @@
 /* i really want this to be global */
 * {
     font-family: "kreon Light","WenQuanYi Micro Hei" !important; 
-    /*font-family: "Port Lligat Slab Larger","WenQuanYi Micro Hei" !important;*/
+    /*font-family: "kreon Light","WenQuanYi Micro Hei" !important;*/
 }
 
-td.code div, 
-div.cnblogs_code_toolbar + div span, 
-tt, blockquote p, 
-pre, pre strong, pre span, li span, pre span a, pre[lang='{r'] code, pre[lang='{r}'] code, 
-.sourceCode, 
-.CodeMirror, 
-.ace_line span, .ace_line, 
-/*.ace_identifier, .ace_keyword, .ace_paren, .ace_punctuation, 
-.ace_string, .ace_constant, .ace_meta, .ace_xml-pe, .ace_entity, 
-.ace_variable, .ace_storage, .ace_support*/
-.remark-code-line, 
+.sourceLine, 
+#code_JUT ol li,
+pre.r a, 
+pre, pre span, li span, pre.rsplus, 
+[action="/sqlcmd-sqlcourse2"] textarea, 
+.container div code, 
+.codeMirrors, 
+.ace_line span, .ace_line,  
 .rsplus, 
 .blob-code, .blob-code span, .blob-num, 
 .r.plain, .r.functions, .r.string, .r.keyword, 
-code.plain, code.functions, code.string, code.keyword, code.spaces, code.value,  
+code.plain, code.functions, code.string, code.keyword, code.spaces, code.value,   
 code span, /*stackoverflow.com*/
+code span a, code date, code chr, code int, 
 code, kbd, samp, var {
     font-family: "Monaco", "WenQuanYi Micro Hei", monospace !important;
     font-size:90%;
 }
 
-@-moz-document url("http://192.168.184.129:8787/") {
-/* i really want this to be global */
+
+@-moz-document domain("codecademy.com") {
+pre, pre span, li span, pre.rsplus, 
+.container div code, 
+.codeMirrors, 
+.ace_line span, .ace_line,  
+.rsplus, 
+.blob-code, .blob-code span, .blob-num, 
+.r.plain, .r.functions, .r.string, .r.keyword, 
+code.plain, code.functions, code.string, code.keyword, code.spaces, code.value,   
+code span, /*stackoverflow.com*/
+code span a, 
+code, kbd, samp, var {
+    font-size:100%;
+}
+
+}
+
+@-moz-document url("http://23.106.137.247:8787/"), url("http://slj.space:8787/"), url("http://121.43.101.233:8787/"), domain("github.com"), domain("stackoverflow.com"), domain("github.io"), domain("stackexchange.com"), domain("superuser.com"), domain("askubuntu.com"), domain("localhost") {
+
+pre, pre span, li span, pre.rsplus, 
+/*tbody tr td span,*/ 
+tbody tr td, 
+.line, 
+.example_code, 
+.container div code, 
+.codeMirrors, 
+.cm-variable, 
+.ace_line span, .ace_line,  
+.rsplus, 
+.blob-code, .blob-code span, .blob-num, 
+.r.plain, .r.functions, .r.string, .r.keyword, 
+code.plain, code.functions, code.string, code.keyword, code.spaces, code.value,   
+code span, /*stackoverflow.com*/
+code span a, 
+code, kbd, samp, var {
+    font-family: "PragmataPro", "WenQuanYi Micro Hei", monospace !important;
+    font-size:100%;
+}
+}
+
+@-moz-document url("http://23.106.137.247:8787/"), url("http://slj.space:8787/"), url("http://121.43.101.233:8787/"), domain("kiwivm.64clouds.com") {
 * {
-    font-family: "Iosevka Light","WenQuanYi Micro Hei" !important; 
-    /*font-family: "Port Lligat Slab Larger","WenQuanYi Micro Hei" !important;*/
-}
-
-tt, blockquote p, 
-pre, pre strong, pre span, li span, pre span a, pre[lang='{r'] code, pre[lang='{r}'] code, 
-.sourceCode, 
-.CodeMirror, 
-.ace_line span, .ace_line, 
-/*.ace_identifier, .ace_keyword, .ace_paren, .ace_punctuation, 
-.ace_string, .ace_constant, .ace_meta, .ace_xml-pe, .ace_entity, 
-.ace_variable, .ace_storage, .ace_support*/
-.remark-code-line, 
-.rsplus, 
-.blob-code, .blob-code span, .blob-num, 
-.r.plain, .r.functions, .r.string, .r.keyword, 
-code.plain, code.functions, code.string, code.keyword, code.spaces, code.value,  
-code span, /*stackoverflow.com*/
-code, kbd, samp, var {
-    font-family: "Iosevka Light", "WenQuanYi Micro Hei", monospace !important;
-    font-size:100%;
-}
-}
-
-@-moz-document domain("codecademy.com"), domain("codeschool.com") {
-pre, pre span, li span, pre span a, 
-.sourceCode, 
-.CodeMirror, 
-.ace_line span, .ace_line, 
-.remark-code-line, 
-.rsplus, 
-.blob-code, .blob-code span, .blob-num, 
-.r.plain, .r.functions, .r.string, .r.keyword, 
-code.plain, code.functions, code.string, code.keyword, code.spaces, code.value,  
-code span, /*stackoverflow.com*/
-code, kbd, samp, var {
-    font-size:100%;
-}
-}
-
-@-moz-document domain("192.168.1.202"), domain("192.168.1.201"), domain("23.106.137.247"), domain("192.168.184.129") {
-/* i really want this to be global */
-* {
-    font-family: "Iosevka","WenQuanYi Micro Hei" !important; 
-    /*font-family: "Port Lligat Slab Larger","WenQuanYi Micro Hei" !important;*/
-}
-
-pre, pre span, li span, pre span a, 
-.sourceCode, 
-.CodeMirror, 
-.ace_line span, .ace_line, 
-/*.ace_identifier, .ace_keyword, .ace_paren, .ace_punctuation, 
-.ace_string, .ace_constant, .ace_meta, .ace_xml-pe, .ace_entity, 
-.ace_variable, .ace_storage, .ace_support*/
-.remark-code-line, 
-.rsplus, 
-.blob-code, .blob-code span, .blob-num, 
-.r.plain, .r.functions, .r.string, .r.keyword, 
-code.plain, code.functions, code.string, code.keyword, code.spaces, code.value,  
-code span, /*stackoverflow.com*/
-code, kbd, samp, var {
-    font-family: "Iosevka Light", "WenQuanYi Micro Hei", monospace !important;
-    font-size:100%;
-}
-}
-
-@-moz-document domain("github.com"), domain("stackoverflow.com"), domain("github.io"), domain("rstudio.com") {
-td.code div, 
-div.cnblogs_code_toolbar + div span, 
-tt, blockquote p, 
-pre, pre strong, pre span, li span, pre span a, pre[lang='{r'] code, pre[lang='{r}'] code, 
-.sourceCode, 
-.CodeMirror, 
-.ace_line span, .ace_line, 
-/*.ace_identifier, .ace_keyword, .ace_paren, .ace_punctuation, 
-.ace_string, .ace_constant, .ace_meta, .ace_xml-pe, .ace_entity, 
-.ace_variable, .ace_storage, .ace_support*/
-.remark-code-line, 
-.rsplus, 
-.blob-code, .blob-code span, .blob-num, 
-.r.plain, .r.functions, .r.string, .r.keyword, 
-code.plain, code.functions, code.string, code.keyword, code.spaces, code.value,  
-code span, /*stackoverflow.com*/
-code, kbd, samp, var {
     font-family: "PragmataPro", "WenQuanYi Micro Hei", monospace !important;
     font-size:100%;
 }
@@ -120,9 +74,6 @@ code, kbd, samp, var {
 @-moz-document url("http://digg.com/reader"), url-prefix("https://mail.qq.com") {
 * {
     font-family: "kreon Light","STXihei" !important;
-}
-
-.story-detail-content {
-	width:90%;
+    /*STXihei*/
 }
 }
