@@ -4,7 +4,7 @@
 $ wget https://download2.rstudio.org/rstudio-server-rhel-0.99.903-x86_64.rpm
 $ sudo yum install --nogpgcheck rstudio-server-rhel-0.99.903-x86_64.rpm
 
-在centOS系统上可能需要打开8787端口
+# 在centOS系统上可能需要打开8787端口
 $ sudo firewall-cmd --zone=public --add-port=8787/tcp --permanent
 $ firewall-cmd --reload
 ######################## maybe not working ########################
