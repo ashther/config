@@ -14,7 +14,7 @@
   .Tag, .VoteButton { line-height: 24px; height: 24px; }
   a.QuestionMainAction { line-height: 44px; height: 44px; }
   .VoteButton { padding: 0 5px;}
-  .QuestionHeader-title, .ContentItem-title { font-size: 18px; font-weight: 450; }
+  .QuestionHeader-title, .ContentItem-title { font-size: 14px; font-weight: bolder; color: #259;}
   .QuestionHeader-detail>.QuestionRichText,
   .AnswerItem-extraInfo,
   .AuthorInfo-badge,
@@ -35,8 +35,8 @@
   .PushNotifications-item,
   .EmptyState-inner,
   .PortraitItem,
-  .ContentItem-meta,
-  body{ font-size: 13px; }
+  .ContentItem-meta, .CommentItem, 
+  body{ font-size: 14px; }
   
   .PushNotifications-item { padding: 10px 15px; }
   .PushNotifications-tab { height: 40px; }
