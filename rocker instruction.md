@@ -37,6 +37,7 @@ RUN R -e "\
 install.packages(c('text2vec', 'luzlogr', 'Rserve', 'tidytext', 'janeaustenr', 'SnowballC', 'tokenizers', 'jiebaR'), type = 'source', contriburl = 'file:///pkg');\
 devtools::install_local(path = '/pkg/widyr-master');"
 EXPOSE 6311
+# 随容器启动Rserve服务
 CMD R CMD Rserve.dbg --vanilla --RS-conf /etc/Rserv.conf
 ```
 #### R包离线安装
