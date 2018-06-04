@@ -1,30 +1,39 @@
 ### 安装docker
-使用阿里云的安装脚本
+添加国内源
 ```bash
-curl -sSL http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/docker-engine/internet | sh -
+$ sudo yum-config-manager \
+    --add-repo \
+    https://mirrors.ustc.edu.cn/docker-ce/linux/centos/docker-ce.repo
 ```
-使用阿里云加速镜像的下载速度，可以通过修改`/etc/docker/daemon.json`：
+### 安装Docker CE
 ```bash
-sudo mkdir -p /etc/docker
-sudo tee /etc/docker/daemon.json <<-'EOF'
-{
-  "registry-mirrors": ["https://{SOME_PERSONAL_STRING}.mirror.aliyuncs.com"]
-}
-EOF
-sudo systemctl daemon-reload
-sudo systemctl restart docker
+$ sudo yum makecache fast
+$ sudo yum install docker-ce
 ```
-
 ### 启动docker引擎
 ```bash
-sudo systemctl enable docker
-sudo systemctl start docker
+$ sudo systemctl enable docker
+$ sudo systemctl start docker
+```
+### 镜像加速
+配置国内镜像加速，在`/etc/docker/daemon.json`中加入如下内容
+```json
+{
+  "registry-mirrors": [
+    "https://registry.docker-cn.com"
+  ]
+}
+```
+### 重启服务
+```bash
+$ sudo systemctl daemon-reload
+$ sudo systemctl restart docker
 ```
 
 ### 定制R镜像
 #### 基础镜像
 ```bash
-sudo docker pull rocker/tidyverse
+$ sudo docker pull rocker/tidyverse
 ```
 #### Dockerfile文件
 ```bash
@@ -61,19 +70,17 @@ getPackages <- function(packs){
 正常启动
 ```bash
 # lib目录包括了各模块R脚本、Rserv_conf.R、log目录、测试db文件等
-sudo docker run --rm -p 6311:6311 -v /home/ashther/lib:/home/rstudio/ -d r-image
+# 设置了容器内的时区，默认为UTC
+$ sudo docker run --rm -e TZ=Asia/Shanghai -p 6311:6311 -v $HOME/lib:/home/rstudio/ -d r-image
 ```
 进入容器进行交互
 ```bash
-sudo docker exec -ti {CONTAINER_ID} bash
+$ sudo docker exec -ti {CONTAINER_ID|CONTAINER_NAMES} bash
 ```
 ### 其他注意项
-在启动镜像时，加载代码、日志目录和Rserve配置文件需要的脚本所在目录作为数据卷
-```bash
--v /DIRECTORY_INCLUDING_SCRIPT:/home/rstudio
-```
+在启动镜像时，加载代码、日志目录和Rserve配置文件需要的脚本所在目录作为数据卷`-v /DIRECTORY_INCLUDING_SCRIPT:/home/rstudio`
 同时要在Rserve配置文件所需要的脚本Rserv\_conf.R中声明：
-```bash
+```R
 LOG_PATH <- '/DIRECTORY_INCLUDING_SCRIPT/log'
 WORK_PATH <- '/DIRECTORY_INCLUDING_SCRIPT'
 ```

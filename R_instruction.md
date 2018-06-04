@@ -1,49 +1,49 @@
 ﻿1### 编译R语言环境
 #### 安装依赖库
 ```bash
-yum install -y readline-devel      
+$ yum install -y readline-devel      
 # 解决错误“ --with-readline=yes (default) and headers/libs are not available”
-yum install -y libXt-devel         
+$ yum install -y libXt-devel         
 # 解决错误“–with-x=yes (default) and X11 headers/libs are not available”
-yum install -y texinfo
-yum install -y texlive-pdftex-doc
+$ yum install -y texinfo
+$ yum install -y texlive-pdftex-doc
 
 # centOS
-yum install -y libcurl-devel # apt-get install libcurl4-openssl-dev on Debian
-yum install -y libxml2-devel
-yum install -y openssl-devel # apt-get install libssl-dev on Debian
-yum install -y udunits2
-yum install -y udunits2-devel
+$ yum install -y libcurl-devel # apt-get install libcurl4-openssl-dev on Debian
+$ yum install -y libxml2-devel
+$ yum install -y openssl-devel # apt-get install libssl-dev on Debian
+$ yum install -y udunits2
+$ yum install -y udunits2-devel
 ```
 
 #### 下载R.3.4.1.tar
 ```bash
-wget https://cloud.r-project.org/src/base/R-3/R-3.4.1.tar.gz
+$ wget https://cloud.r-project.org/src/base/R-3/R-3.4.1.tar.gz
 ```
 
 #### 解压R.3.4.1.tar
 ```bash
-tar -xvf R.3.4.1.tar
-cd R.3.4.1.tar
-./configure --enable-R-shlib
-make
-make install
+$ tar -xvf R.3.4.1.tar
+$ cd R.3.4.1.tar
+$ ./configure --enable-R-shlib
+$ make
+$ make install
 ```
 
 #### 测试R语言环境是否安装成功
 ```bash
-R -e 'version'
+$ R -e 'version'
 ```
 
 #### 安装R相关包
 ```bash
-sudo ./rPckInstall.R	
+$ sudo ./rPckInstall.R	
 #以root权限进行安装，同目录下rPckDepend.json中指明需要安装的包
 ```
 
 ### 启动Rserve服务
 ```bash
-R CMD Rserve	
+$ R CMD Rserve	
 # 远程连接时需要参数`--RS-enable-remote`
 # 遇到Rserve: not found错误时，可能是由于Rserve安装位置与路径不一致导致，可以在/usr/local/lib64/R/bin/创建软连接：ln -s /usr/lib64/R/library/Rserve/libs/Rserve Rserve
 # 可以在/etc/rc.local中加入su slj -c "/usr/local/lib64/R/bin/R CMD Rserve --RS-conf /home/slj/Rserv_conf/Rserv.conf"

@@ -25,7 +25,7 @@ $ sudo rstudio-server suspend-all
 $ sudo rstudio-server offline # 会给当前连接用户下线提示
 $ sudo rstudio-server online
 
-0 6 * * * /sbin/restart rstudio-server >/dev/null 2>&1
+# 0 6 * * * /sbin/restart rstudio-server >/dev/null 2>&1
 ```
 ### [shiny-server的安装](https://www.rstudio.com/products/shiny/download-server/)
 ```bash
@@ -36,7 +36,7 @@ $ sudo start shiny-server
 $ sudo stop shiny-server
 $ sudo restart shiny-server # restart模式不会读取/etc/init/shiny-server.conf中的改动
 
-0 6 * * * /sbin/restart shiny-server >/dev/null 2>&1
+# 0 6 * * * /sbin/restart shiny-server >/dev/null 2>&1
 ```
 ### R的安装
 #### Linux平台的安装
@@ -60,16 +60,16 @@ $ sudo yum install libxml2-devel
 ```bash
 $ sudo adduser apple
 $ sudo passwd apple
-vim /etc/sudoers 找到 root ALL=(ALL) ALL 在这行下边添加 apple ALL=(ALL) ALL
+$ vim /etc/sudoers # 找到 root ALL=(ALL) ALL 在这行下边添加 apple ALL=(ALL) ALL
 ```
 ### shiny用户安装shiny等包
 多数包可以通过`install.packages('PACKAGE_NAME', repos = 'http://cran.rstudio.com/')`的方式安装，但是有的包如`Rcpp`或者`httpuv`等还是会报无法编译的错，可以先查看`yum list R-\*`是否包含需要安装的包，如果有就直接`yum install PACKAGE_NAME`，此外也可以使用如下办法安装：  
 ```bash
-wget http://cran.r-project.org/src/contrib/Rcpp_0.11.1.tar.gz
-sudo R CMD INSTALL --build Rcpp_0.11.1.tar.gz
+$ wget http://cran.r-project.org/src/contrib/Rcpp_0.11.1.tar.gz
+$ sudo R CMD INSTALL --build Rcpp_0.11.1.tar.gz
 
-wget http://cran.r-project.org/src/contrib/httpuv_1.2.3.tar.gz
-sudo R CMD INSTALL --build httpuv_1.2.3.tar.gz
+$ wget http://cran.r-project.org/src/contrib/httpuv_1.2.3.tar.gz
+$ sudo R CMD INSTALL --build httpuv_1.2.3.tar.gz
 ```
 ### 关于安装r包能让所有用户使用
 ```diff
