@@ -5,6 +5,15 @@ $ wget https://download2.rstudio.org/rstudio-server-rhel-0.99.903-x86_64.rpm
 $ sudo yum install --nogpgcheck rstudio-server-rhel-0.99.903-x86_64.rpm
 
 # 在centOS系统上可能需要打开8787端口
+# 如果是在虚拟机安装的rstudio server，希望局域网内访问时，除了在虚拟机和宿主机之间建立端口映射外，应打开windows的特定端口：
+# To open a port in the Windows firewall for TCP access
+# On the Start menu, click Run, type WF.msc, and then click OK.
+# In the Windows Firewall with Advanced Security, in the left pane, right-click Inbound Rules, and then click New Rule in the action pane.
+# In the Rule Type dialog box, select Port, and then click Next.
+# In the Protocol and Ports dialog box, select TCP. Select Specific local ports, and then type the port number of the instance of the Database Engine, such as 1433 for the default instance. Click Next.
+# In the Action dialog box, select Allow the connection, and then click Next.
+# In the Profile dialog box, select any profiles that describe the computer connection environment when you want to connect to the Database Engine, and then click Next.
+# In the Name dialog box, type a name and description for this rule, and then click Finish.
 $ sudo firewall-cmd --zone=public --add-port=8787/tcp --permanent
 $ firewall-cmd --reload
 ######################## maybe not working ########################
