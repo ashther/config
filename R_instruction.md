@@ -16,13 +16,16 @@ $ yum install -y udunits2
 $ yum install -y udunits2-devel
 ```
 
-#### 下载R.3.4.1.tar
+#### 直接安装R（推荐）
 ```bash
-$ wget https://cloud.r-project.org/src/base/R-3/R-3.4.1.tar.gz
+$ sudo yum install epel-release
+$ sudo yum update
+$ sudo yum install R
 ```
 
-#### 解压R.3.4.1.tar
+#### 源码安装R
 ```bash
+$ wget https://cloud.r-project.org/src/base/R-3/R-3.4.1.tar.gz
 $ tar -xvf R.3.4.1.tar
 $ cd R.3.4.1.tar
 $ ./configure --enable-R-shlib

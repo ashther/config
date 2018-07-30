@@ -15,7 +15,7 @@ $ sudo yum install --nogpgcheck rstudio-server-rhel-0.99.903-x86_64.rpm
 # In the Profile dialog box, select any profiles that describe the computer connection environment when you want to connect to the Database Engine, and then click Next.
 # In the Name dialog box, type a name and description for this rule, and then click Finish.
 $ sudo firewall-cmd --zone=public --add-port=8787/tcp --permanent
-$ firewall-cmd --reload
+$ sudo firewall-cmd --reload
 ######################## maybe not working ########################
 # $ sudo iptables -I INPUT -p tcp --dport 8787 -j ACCEPT # 有可能防火墙未打开8787端口，需要手动开启
 # # 使用虚拟机安装rstudio server后，应配置远程访问虚拟机，可以在VM的虚拟网络编辑器中使用NAT模式，修改VMnet8的设置，添加端口映射。需要注意在网络和共享中心里不要禁用VMnet8！

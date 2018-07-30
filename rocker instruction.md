@@ -33,7 +33,7 @@ $ sudo systemctl restart docker
 ### 定制R镜像
 #### 基础镜像
 ```bash
-$ sudo docker pull rocker/tidyverse
+$ sudo docker pull r-base
 ```
 #### Dockerfile文件
 ```bash
