@@ -28,12 +28,14 @@ $ sudo systemctl start docker
 ```bash
 $ sudo systemctl daemon-reload
 $ sudo systemctl restart docker
+$ sudo systemctl start docker 
+$ sudo systemctl enable docker # 开机启动
 ```
 
 ### 定制R镜像
 #### 基础镜像
 ```bash
-$ sudo docker pull r-base
+$ sudo docker pull rocker/r-ver
 ```
 #### Dockerfile文件
 ```bash
@@ -84,3 +86,51 @@ $ sudo docker exec -ti {CONTAINER_ID|CONTAINER_NAMES} bash
 LOG_PATH <- '/DIRECTORY_INCLUDING_SCRIPT/log'
 WORK_PATH <- '/DIRECTORY_INCLUDING_SCRIPT'
 ```
+
+### docker compose
+二进制包安装
+```bash
+$ sudo curl -L https://github.com/docker/compose/releases/download/{VERSION}/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+$ sudo chmod +x /usr/local/bin/docker-compose
+$ docker-compose --version
+```
+为了运行服务需要编写`docker-compose.yaml`，该文件应与docker项目处于同一目录下，便于文件内使用相对路径
+```yaml
+# 启动plumber容器，并利用HaProxy做负载均衡的例子
+version: '3'
+services:
+
+  utqe-plumber:
+    image: api_utqe:plumber
+    environment: 
+      - TZ=Asia/Shanghai
+    volumes:
+      - ./utqe-plumber/plumber:/home/rstudio
+    expose: 
+      - "8002"
+    restart: always
+      
+  lb:
+    image: dockercloud/haproxy
+    environment:
+      - STATS_AUTH="admin:admin" # 页面统计
+      - STATS_PORT=1936
+    links:
+      - utqe-plumber
+    ports:
+      - "8002:80"
+      - "1936:1936"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      - utqe-plumber
+    restart: always
+    
+```
+常用命令
+```bash
+$ docker-compose -f {PATH OF docker-compose.yaml} up -d --scale utqe-plumber=3
+$ docker-compose -f {PATH OF docker-compose.yaml} ps # 查看
+$ docker-compose -f {PATH OF docker-compose.yaml} down
+```
+docker compose随docker开机启动时启动，无需单独设置，但应注意在`docker-compose.yaml`的服务中注明`restart: always`
