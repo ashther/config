@@ -1,3 +1,9 @@
+### 安装CentOS时报unknown chipset错误
+1. select operating system and press 'e' to enter the grub
+2. select kernel in the list and press 'e' again to enter kernel boot options 
+3. add `nomodeset rdblacklist=nouveau` after `quiet`
+4. Install the system
+
 ### 配置`.bashrc`
 ```bash
 # Custom bash prompt via kirsle.net/wizards/ps1.html
@@ -62,3 +68,67 @@ $ rpm -qa|grep PACKAGE # rpm安装
 $ yum list installed|grep PACKAGE # yum安装
 ```
 
+### 关于安全
+向公网开放端口的机器必须考虑安全问题
+
+#### 修改密码
+1. root用户使用12位及以上强密码，包括大小写英文、数字、符号；
+2. 普通用户可以使用便于记忆的强密码，方便使用sudo；
+
+#### 修改22端口
+```bash
+vim /etc/ssh/sshd_config
+# 暂时先保留22端口，避免新端口出错登陆不了
+Port 22
+Port 333
+
+# 防火墙放行
+firewall-cmd --zone=public --add-port=333/tcp --permanent
+firewall-cmd --reload
+
+# 修改SELinux
+semanage port -a -t ssh_port_t -p tcp 333 # 添加端口
+semanage port -l | grep ssh # 确认
+
+systemctl restart sshd # 重启重新登陆新端口333后注释掉原来的22端口
+```
+
+#### 修改3306端口
+```bash
+vim /etc/my.cnf
+# add this under [mysqld] section
+port=3307
+
+# 修改SELinux
+semanage port -a -t mysqld_port_t -p tcp 3307 # 添加端口
+semanage port -l | grep mysql # 确认
+
+systemctl restart mariadb
+```
+
+#### 修改数据库用户名和密码
+限制root用户只能本地访问，可以远程访问的普通用户使用强密码
+```sql
+-- 修改能够远程访问的用户USER的密码
+set password for 'USER'@'%'=password('NEW-PASSWORD');
+flush privileges;
+```
+
+#### 防止暴力破解
+```bash
+yum install fail2ban
+vim /etc/fail2ban/jail.local 
+
+# 新建配置如下
+# ignoreip白名单，bantime屏蔽时间，findtime时间范围，maxretry最大尝试次数，banaction屏蔽所使用方法
+[DEFAULT]
+ignoreip = 127.0.0.1/8, 210.26.116.11
+bantime  = 86400
+findtime = 600
+maxretry = 5
+banaction = firewallcmd-ipset
+action = %(action_mwl)s
+
+systemctl start fail2ban
+systemctl enable fail2ban
+```
