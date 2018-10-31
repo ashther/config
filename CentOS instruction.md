@@ -36,7 +36,7 @@ $ sudo yum makecache
 ### 安装go和ccat
 ```bash
 $ sudo yum install go
-$ go get -u github.com/jingweno/ccat
+$ go get -u github.com/jingweno/ccat # 也可以下载源码解压至PATH路径下
 
 # 替换cat为ccat，在.bashrc末尾加入
 alias cat="ccat -G String='green' -G Keyword='red' -G Comment='darkgray' -G Punctuation='brown' -G Plaintext='lightgray'"
