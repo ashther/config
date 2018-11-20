@@ -77,33 +77,33 @@ $ yum list installed|grep PACKAGE # yum安装
 
 #### 修改22端口
 ```bash
-vim /etc/ssh/sshd_config
+$ vim /etc/ssh/sshd_config
 # 暂时先保留22端口，避免新端口出错登陆不了
 Port 22
 Port 333
 
 # 防火墙放行
-firewall-cmd --zone=public --add-port=333/tcp --permanent
-firewall-cmd --reload
+$ firewall-cmd --zone=public --add-port=333/tcp --permanent
+$ firewall-cmd --reload
 
 # 修改SELinux
-semanage port -a -t ssh_port_t -p tcp 333 # 添加端口
-semanage port -l | grep ssh # 确认
+$ semanage port -a -t ssh_port_t -p tcp 333 # 添加端口
+$ semanage port -l | grep ssh # 确认
 
-systemctl restart sshd # 重启重新登陆新端口333后注释掉原来的22端口
+$ systemctl restart sshd # 重启重新登陆新端口333后注释掉原来的22端口
 ```
 
 #### 修改3306端口
 ```bash
-vim /etc/my.cnf
+$ vim /etc/my.cnf
 # add this under [mysqld] section
 port=3307
 
 # 修改SELinux
-semanage port -a -t mysqld_port_t -p tcp 3307 # 添加端口
-semanage port -l | grep mysql # 确认
+$ semanage port -a -t mysqld_port_t -p tcp 3307 # 添加端口
+$ semanage port -l | grep mysql # 确认
 
-systemctl restart mariadb
+$ systemctl restart mariadb
 ```
 
 #### 修改数据库用户名和密码
@@ -116,8 +116,8 @@ flush privileges;
 
 #### 防止暴力破解
 ```bash
-yum install fail2ban
-vim /etc/fail2ban/jail.local 
+$ yum install fail2ban
+$ vim /etc/fail2ban/jail.local 
 
 # 新建配置如下
 # ignoreip白名单，bantime屏蔽时间，findtime时间范围，maxretry最大尝试次数，banaction屏蔽所使用方法
@@ -129,6 +129,6 @@ maxretry = 5
 banaction = firewallcmd-ipset
 action = %(action_mwl)s
 
-systemctl start fail2ban
-systemctl enable fail2ban
+$ systemctl start fail2ban
+$ systemctl enable fail2ban
 ```
