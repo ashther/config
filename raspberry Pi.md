@@ -48,7 +48,7 @@ sudo apt-get -y update
 sudo apt-get -y install r-base r-base-dev
 ```
 
-安装`fs`包时碰到`undefined symbol`问题，参考了(这里)[https://github.com/r-lib/fs/issues/128#issuecomment-435552967]：
+安装`fs`包时碰到`undefined symbol`问题，参考了[这里](https://github.com/r-lib/fs/issues/128#issuecomment-435552967)：
 ```bash
 wget https://cran-r.c3sl.ufpr.br/src/contrib/fs_1.2.6.tar.gz
 tar zxvf path/to/fs
@@ -63,7 +63,7 @@ sudo R
 install.packages("/path/to/fs", repos = NULL, type="source")
 ```
 
-安装`later`包时碰到`undefined symbol`问题，参考了(这里)[https://github.com/r-lib/later/issues/73]：
+安装`later`包时碰到`undefined symbol`问题，参考了[这里](https://github.com/r-lib/later/issues/73)：
 ```bash
 git clone https://github.com/r-lib/later.git
 sudo apt-get install libboost-atomic-dev #optional if you don't have libboost
