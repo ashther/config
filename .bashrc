@@ -1,6 +1,7 @@
 # Custom bash prompt via kirsle.net/wizards/ps1.html
-export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@$(ifconfig|grep "inet 192.168.1"|awk '{print $2}'|cut -d . -f4) \[$(tput setaf 4)\]\H \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 6)\] \t\[$(tput setaf 7)\] \\$ \[$(tput sgr0)\]"
+export PS1="\[$(tput bold)\]\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\w\[$(tput setaf 7)\] \[$(tput setaf 1)\]\\$ \[$(tput sgr0)\]"
 export BAT_THEME="OneHalfDark"
+export BAT_PAGER=""
 
 alias ll="ls -lht"
 
@@ -10,7 +11,6 @@ alias ll="ls -lht"
 alias bat="/usr/local/bat/bat"
 
 alias nts="echo 123456 | sudo -S netstat -antp | grep -v :8787 | grep -v :3306"
-alias dog="highlight -O ansi --force"
-alias tom="pygmentize -g"
+alias cat='/usr/bin/bat'
 alias dps="docker ps -a"
 alias dim="docker images"
