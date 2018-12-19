@@ -115,7 +115,9 @@ mkdir ../build
 
 (cd .. && ./bin/npm --python="$PYTHON" install)
 (cd .. && ./bin/node ./ext/node/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js --python="$PYTHON" rebuild)
-# 在上面这两步的第一步有可能碰到类似exec: ./bin/../ext/node/bin/node: not found的错误，在这种情况下执行以下安装步骤，这个错误也可能导致pandoc安装出错，如果在安装完shiny server之后有关rmarkdown的应用报错，可以通过apt-get install pandoc安装，之后将/usr/bin/pandoc覆盖复制到/usr/local/shiny-server/ext/pandoc/pandoc即可
+# 在上面这两步的第一步有可能碰到类似exec: ./bin/../ext/node/bin/node: not found的错误，在这种情况下执行以下安装步骤
+# 这个错误也可能导致pandoc安装出错，如果在安装完shiny server之后有关rmarkdown的应用报错，
+# 可以通过apt-get install pandoc安装，之后将/usr/bin/pandoc覆盖复制到/usr/local/shiny-server/ext/pandoc/pandoc即可
 sed -i '8s/.*/NODE_SHA256=7a2bb6e37615fa45926ac0ad4e5ecda4a98e2956e468dedc337117bfbae0ac68/' ../external/node/install-node.sh
 sed -i 's/linux-x64.tar.xz/linux-armv7l.tar.xz/' ../external/node/install-node.sh
 (cd .. && ./external/node/install-node.sh)
@@ -141,7 +143,8 @@ sudo mkdir -p /etc/shiny-server
 sudo cd shiny-server
 sudo cp config/default.config /etc/shiny-server/shiny-server.conf
 sudo chown shiny +x /etc/shiny-server/shiny-server.conf
-# shiny-server的source中自带的shiny-server.service要根据实际情况修改，其中的ExectStart中的shiny-server路径原为/opt/shiny-server/bin/shiny-server，应修改为/usr/bin/shiny-server
+# shiny-server的source中自带的shiny-server.service要根据实际情况修改，其中的ExectStart中的shiny-server路径原为
+# /opt/shiny-server/bin/shiny-server，应修改为/usr/bin/shiny-server
 sudo cp config/systemd/shiny-server.service /lib/systemd/system/shiny-server.service
 sudo chown shiny +x /lib/systemd/system/shiny-server.service
 
