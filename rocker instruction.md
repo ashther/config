@@ -68,6 +68,24 @@ getPackages <- function(packs){
 ```
 获取所需包及其依赖包，再利用`download.packages()`下载所有的源文件到本地，然后利用`tools::write_PACKAGES()`在下载的源文件目录中生成必要的文件，如果在win平台使用该函数时一定要指明`type = 'source'`参数，R包源文件以及`write_PACKAGES`产生的文件都应在自定义镜像时复制到基础镜像中去，此外，github上的R包下载到本地后要解压，同时最好在安装github的R包之前先主动安装好其需要的依赖
 
+#### 特定版本R包的安装
+Docker镜像中的R环境应与开发环境保持一致，在创建Docker镜像时应指定R包的版本，保证可重复性。在Dockerfile中使用以下命令安装R包
+```bash
+RUN R -e "\
+packages <- c( \
+  ashtheR = '0.1.1', \
+  dplyr = '0.7.8' \
+) \
+install.packages('devtools') \
+invisible(lapply(names(packages), function(x) { \
+  devtools::install_version( \
+    x, packages[x], \
+    repos = 'https://mirror.lzu.edu.cn/CRAN/' \
+  ) \
+})) \
+"
+```
+
 ### 运行镜像
 正常启动
 ```bash
