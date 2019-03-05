@@ -1,15 +1,23 @@
 ## Windows & R ========================
-使用Keras或tensorflow包可以说是一键安装，但是需要提前把梯子准备好，make life easier
+~~使用Keras或tensorflow包可以说是一键安装，但是需要提前把梯子准备好，make life easier~~
 ```R
-Sys.setenv(http_proxy = 'http://localhost:1080')
-Sys.setenv(https_proxy = 'https://localhost:1080')
+~~Sys.setenv(http_proxy = 'http://localhost:1080')~~
+~~Sys.setenv(https_proxy = 'https://localhost:1080')~~
 ```
-然后本来应该可以安装`keras::install_keras()`，但可能由于墙或者别的网络问题导致一直报错
+~~然后本来应该可以安装`keras::install_keras()`，但可能由于墙或者别的网络问题导致一直报错~~
 ```
-CondaHTTPError: HTTP 000 CONNECTION FAILED for url <https://conda.anaconda.org/conda-forge/win-64/repodata.json>
-Elapsed: -
+~~CondaHTTPError: HTTP 000 CONNECTION FAILED for url <https://conda.anaconda.org/conda-forge/win-64/repodata.json>~~
+~~Elapsed: -~~
 ```
-但是使用`tensorflow::install_tensorflow()`可以安装包括`Keras`在内的各种包
+~~但是使用`tensorflow::install_tensorflow()`可以安装包括`Keras`在内的各种包~~
+
+再更换了网络环境和机器后，之前一键安装的办法居然一直碰到CondaHTTPError的错误，无解...参考了[这里的讨论](https://github.com/rstudio/keras/issues/626)之后，可以使用以下步骤进行安装
+1. `conda create -n r-tensorflow`
+2. `conda activate`
+3. `"C:\Program Files\R\R-3.5.1\bin\R.exe"`
+4. `keras::install_keras()`
+
+所以其实是手动创建r-tensorflow的虚拟环境，并在其中进行一键安装。
 
 ## LInux & Python ========================
 以下说明安装keras以及远程开发所需IDE的配置细节
