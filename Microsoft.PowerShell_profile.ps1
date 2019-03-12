@@ -1,3 +1,4 @@
+# set-executionpolicy remotesigned
 function getDockerImage{
     docker image ls
 }
