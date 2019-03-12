@@ -62,3 +62,14 @@ default-character-set=utf8
 [mysql]
 default-character-set=utf8
 ```
+
+### trouble shooting
+启动mysql的docker容器时，可能会遇到2058错误，需要进入容器并进入mysql`mysql -u root -p`后，执行以下sql
+```sql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+```
+
+在使用RMySQL向mysql8.0版本插入数据时可能会遇到错误`Error in .local(conn, statement, ...) : 
+    could not run statement: The used command is not allowed with this MySQL version`，有两种解决方案
+1. 修改配置文件`/etc/mysql/my.cnf`，在`[mysqld]`行下加入`local-infile=1`，重启mysql；
+2. 进入mysql后执行`SET GLOBAL local_infile = true;`，确认是否已修改`SHOW GLOBAL VARIABLES LIKE 'local_infile';`，输出应为ON
