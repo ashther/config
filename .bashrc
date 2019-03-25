@@ -12,5 +12,5 @@ alias bat="/usr/local/bat/bat"
 
 alias nts="echo 123456 | sudo -S netstat -antp | grep -v :8787 | grep -v :3306"
 alias cat='/usr/bin/bat' # /usr/local/bat/bat on centos
-alias dps="docker ps -a"
+alias dps="docker ps -a --format \"table {{.Names}}\t{{.Status}}\t{{.CreatedAt}}\t{{.Ports}}\""
 alias dim="docker images"
