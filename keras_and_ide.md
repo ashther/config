@@ -22,6 +22,11 @@ Elapsed: -
 ## LInux & Python ========================
 以下说明安装keras以及远程开发所需IDE的配置细节
 
+目前（2019.5）使用`keras::install_keras()`安装可能是最简便的方案。
+安装完成后如果使用keras库提示`Error: Python module tensorflow was not found.`之类的错误：
+1. 尝试`use_condaenv("r-tensorflow")`以及`use_python('/root/anaconda3/envs/r-tensorflow/bin/python')`来指定虚拟环境；
+2. 如果依然提示错误，尝试`reticulate::import("keras")`看是否能正常载入，可能会提示`ImportError:/usr/lib64/libstdc++.so.6: version 'CXXABI_1.3.7' not found`，这说明libstdc++的版本太低了，更新版本后可正常使用keras。
+
 ### 安装Anaconda
 使用anaconda提供的conda环境来进行后续的tensorflow以及keras的安装。进入anaconda官网[下载页面](https://www.anaconda.com/download/)选择合适的版本下载。运行下载得到的Anaconda2-\*.\*.0-Linux-x86_64.sh即可，但是由于conda更新源的连接较慢，所以有必要先增加conda的国内镜像再安装。
 ```bash
