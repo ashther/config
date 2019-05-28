@@ -3,10 +3,10 @@
 		"installDate": 1539875552262,
 		"sections": [
 			{
-				"code": "/* i really want this to be global */\n* {\n    font-family: \"kreon Light\",\"WenQuanYi Micro Hei\" !important; \n    /*font-family: \"kreon Light\",\"WenQuanYi Micro Hei\" !important;*/\n}\n\n[ng-if=\"Theme.json\"] span, [ng-if=\"Theme.json\"] span s, \n.hljs-ln-line, .remark-code-line, \n.formBox div p, \nblockquote, blockquote b, blockquote p, \n.sourceLine, \n#code_JUT ol li,\npre.r a, \npre, pre span, li span, pre.rsplus, pre b, \n[action=\"/sqlcmd-sqlcourse2\"] textarea, \n.container div code, \n.codeMirrors, \n.ace_line span, .ace_line,  \n.rsplus, \n.blob-code, .blob-code span, .blob-num, \n.r.plain, .r.functions, .r.string, .r.string a, .r.keyword, \ncode.plain, code.functions, code.string, code.keyword, code.spaces, code.value, \ncode span, /*stackoverflow.com*/\ncode span a, code date, code chr, code int,  code strong, code a, \ncode, kbd, samp, var {\n    font-family: \"Anonymous Pro\", \"WenQuanYi Micro Hei\", monospace !important;\n    font-size:100%;\n}\n"
+				"code": "/* i really want this to be global */\n* {\n    font-family: \"kreon Light\",\"WenQuanYi Micro Hei\" !important; \n    /*font-family: \"kreon Light\",\"WenQuanYi Micro Hei\" !important;*/\n}\n\n.bash.string a, \n.xterm-rows div span, \n[ng-if=\"Theme.json\"] span, [ng-if=\"Theme.json\"] span s, \n.hljs-ln-line, .remark-code-line, \n.formBox div p, \nblockquote, blockquote b, blockquote p, \n.sourceLine, \n#code_JUT ol li,\npre.r a, \npre, pre span, li span, pre.rsplus, pre b, \n[action=\"/sqlcmd-sqlcourse2\"] textarea, \n.container div code, \n.codeMirrors, \n.ace_line span, .ace_line,  \n.rsplus, \n.blob-code, .blob-code span, .blob-num, \n.r.plain, .r.functions, .r.string, .r.string a, .r.keyword, \ncode.plain, code.functions, code.string, code.keyword, code.spaces, code.value, \ncode span, /*stackoverflow.com*/\ncode span a, code date, code chr, code int,  code strong, code a, \ncode, kbd, samp, var {\n    font-family: \"Anonymous Pro\", \"WenQuanYi Micro Hei\", monospace !important;\n    font-size:100%;\n}\n"
 			},
 			{
-				"code": ".formBox div p, \nblockquote, blockquote b, blockquote p, \n.sourceLine, \n#code_JUT ol li,\npre.r a, \npre, pre span, li span, pre.rsplus, pre b, \n/*tbody tr td span,*/ \ntbody tr td, \n.line, \n.example_code, \n.container div code, \n.codeMirrors, \n.cm-variable, \n.ace_line span, .ace_line,  \n.rsplus, \n.blob-code, .blob-code span, .blob-num, \ncode.r, .r.plain, .r.functions, .r.string, .r.keyword, \ncode.plain, code.functions, code.string, code.keyword, code.spaces, code.value,   \ncode span, /*stackoverflow.com*/\ncode span a, \ncode, kbd, samp, var {\n    font-family: \"Anonymous Pro\", \"WenQuanYi Micro Hei\", monospace !important;\n    font-size:100%;\n}",
+				"code": ".xterm-rows div span, \n.formBox div p, \nblockquote, blockquote b, blockquote p, \n.sourceLine, \n#code_JUT ol li,\npre.r a, \npre, pre span, li span, pre.rsplus, pre b, \n/*tbody tr td span,*/ \ntbody tr td, \n.line, \n.example_code, \n.container div code, \n.codeMirrors, \n.cm-variable, \n.ace_line span, .ace_line,  \n.rsplus, \n.blob-code, .blob-code span, .blob-num, \ncode.r, .r.plain, .r.functions, .r.string, .r.keyword, \ncode.plain, code.functions, code.string, code.keyword, code.spaces, code.value,   \ncode span, /*stackoverflow.com*/\ncode span a, \ncode, kbd, samp, var {\n    font-family: \"Anonymous Pro\", \"WenQuanYi Micro Hei\", monospace !important;\n    font-size:100%;\n}",
 				"urls": [
 					"http://23.106.137.247:8787/",
 					"http://slj.space:8787/",
@@ -39,7 +39,7 @@
 				]
 			},
 			{
-				"code": "* {\n    font-family: \"kreon Light\", \"STXihei\" !important;\n    /*STXihei*/\n}",
+				"code": "* {\n    font-family: \"kreon Light\", \"WenQuanYi Micro Hei\" !important;\n    /*STXihei*/\n}",
 				"urls": [
 					"http://digg.com/reader"
 				],
@@ -55,7 +55,7 @@
 		"name": "UI - 字体",
 		"enabled": true,
 		"id": 1,
-		"updateDate": 1553927205799
+		"updateDate": 1559015876229
 	},
 	{
 		"installDate": 1539875552295,
@@ -620,7 +620,7 @@
 		],
 		"name": "Solarized Everything: GitHub",
 		"originalDigest": "11f21d784a42de865d50bd740ee5171c47c9e8bf",
-		"id": 27
+		"id": 29
 	},
 	{
 		"enabled": false,
@@ -680,6 +680,25 @@
 		],
 		"name": "Dark GitLab Theme",
 		"originalDigest": "8e72ab460640717b4b84f739277f335f336337f7",
-		"id": 29
+		"id": 30
+	},
+	{
+		"enabled": true,
+		"updateUrl": null,
+		"md5Url": null,
+		"url": null,
+		"originalMd5": null,
+		"installDate": 1553562912921,
+		"name": "192.168.1.201",
+		"sections": [
+			{
+				"code": ".ace_comment {\n  color: #6272a4;\n  font-style: italic;\n}\n\n.ace_support.ace_class,\n.ace_support.ace_type {\n  font-style: italic;\n  color: #50fa7b;\n}\n\n.ace_keyword.ace_operator.ace_infix {\n  color: #50fa7b !important;\n}\n",
+				"urlPrefixes": [
+					"http://192.168.1.201:8787/"
+				]
+			}
+		],
+		"updateDate": 1553562912922,
+		"id": 31
 	}
 ]
