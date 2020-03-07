@@ -56,7 +56,9 @@
 		"name": "UI - 字体",
 		"enabled": true,
 		"id": 1,
-		"updateDate": 1568164791709
+		"updateDate": 1568164791709,
+		"_id": "2796cce0-c3c4-430d-b21c-eead2c197ce1",
+		"_rev": 1581492448072
 	},
 	{
 		"installDate": 1539875552295,
@@ -445,7 +447,9 @@
 		"originalMd5": "b293190b0f0d3932a94f2942038ae9b8",
 		"name": "Stackoverflow Dark",
 		"enabled": true,
-		"id": 5
+		"id": 5,
+		"_id": "ee80c479-f039-45fe-ae92-540d2f4f5d78",
+		"_rev": 1581042796260
 	},
 	{
 		"installDate": 1539875552349,
@@ -466,7 +470,9 @@
 		"originalMd5": "4228c8d8722532cfe4e615b5cadec9ca",
 		"name": "r-bloggers",
 		"enabled": true,
-		"id": 7
+		"id": 7,
+		"_id": "2c4ceecd-8fef-464f-8190-43b157eb81cb",
+		"_rev": 1581042796260
 	},
 	{
 		"installDate": 1539875552376,
@@ -484,7 +490,9 @@
 		"originalMd5": "f0071ade28945aa0f32ea05ff7cbf710",
 		"name": "Traditional Zhihu",
 		"enabled": true,
-		"id": 13
+		"id": 13,
+		"_id": "6187f290-17cf-4dd1-85f9-704d313134be",
+		"_rev": 1581042796260
 	},
 	{
 		"installDate": 1539875552398,
@@ -505,7 +513,9 @@
 		"originalMd5": "e35d3e903e74a9bf0b3eb0fe7fce369a",
 		"name": "Inoreader (no ADs)",
 		"enabled": true,
-		"id": 18
+		"id": 18,
+		"_id": "6d77f804-4bf1-4c2c-9849-679fcc03f19d",
+		"_rev": 1581042796260
 	},
 	{
 		"installDate": 1539875552427,
@@ -526,7 +536,9 @@
 		"md5Url": null,
 		"url": null,
 		"originalMd5": null,
-		"id": 24
+		"id": 24,
+		"_id": "11ea4dd5-a12a-44c0-a634-771751cff0e7",
+		"_rev": 1581042796260
 	},
 	{
 		"installDate": 1539875552448,
@@ -550,7 +562,9 @@
 		"originalMd5": "1d00840c668322d87c5b8bc255fe0409",
 		"name": "GitHub Dark",
 		"enabled": false,
-		"id": 25
+		"id": 25,
+		"_id": "223897b6-4917-4b22-aa25-8facf0b4e515",
+		"_rev": 1581042796260
 	},
 	{
 		"enabled": false,
@@ -602,7 +616,9 @@
 		],
 		"name": "Flat_Zhihu v2.4.13",
 		"originalDigest": "b47e8aa1b955ce9a2d16b9d7102d0fb17129474f",
-		"id": 26
+		"id": 26,
+		"_id": "aec0e259-1d3a-4c18-9c7a-4cc127d6055e",
+		"_rev": 1581042796260
 	},
 	{
 		"enabled": true,
@@ -621,7 +637,9 @@
 		],
 		"name": "Solarized Everything: GitHub",
 		"originalDigest": "11f21d784a42de865d50bd740ee5171c47c9e8bf",
-		"id": 29
+		"id": 29,
+		"_id": "33bf214e-cc39-4876-8fc6-c808e36bf802",
+		"_rev": 1581042796260
 	},
 	{
 		"enabled": false,
@@ -711,7 +729,9 @@
 		"originalDigest": "0e57b10a3ef96b95f2838317b4dfa145c667a3d0",
 		"id": 30,
 		"updateDate": 1569547038784,
-		"originalName": "Dark-GitLab"
+		"originalName": "Dark-GitLab",
+		"_id": "3606d090-401a-44d2-9bf2-9e3ef7f7e1f9",
+		"_rev": 1581042796260
 	},
 	{
 		"enabled": true,
@@ -730,6 +750,8 @@
 			}
 		],
 		"updateDate": 1553562912922,
-		"id": 31
+		"id": 31,
+		"_id": "f26e0afe-6c80-46b2-9ab8-32f5b4d29970",
+		"_rev": 1581042796260
 	}
 ]
