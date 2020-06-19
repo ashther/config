@@ -54,10 +54,11 @@ CMD R CMD Rserve.dbg --vanilla --RS-conf /etc/Rserv.conf
 #### R包离线安装
 这里要明确R包离线安装的办法，利用自定义函数
 ```R
+# get all dependices packages
 getPackages <- function(packs){
   packages <- unlist(
     tools::package_dependencies(packs, available.packages(),
-                                which = c("Depends", "Imports"), recursive = TRUE)
+                                which = c("Depends", "Imports", "LinkingTo"), recursive = TRUE)
   )
   packages <- union(packs, packages)
   packages[!packages %in% unname(installed.packages()[
@@ -65,10 +66,34 @@ getPackages <- function(packs){
     'Package'
     ])]
 }
-```
-获取所需包及其依赖包，再利用`download.packages()`下载所有的源文件到本地，然后利用`tools::write_PACKAGES()`在下载的源文件目录中生成必要的文件，如果在win平台使用该函数时一定要指明`type = 'source'`参数，R包源文件以及`write_PACKAGES`产生的文件都应在自定义镜像时复制到基础镜像中去，此外，github上的R包下载到本地后要解压，同时最好在安装github的R包之前先主动安装好其需要的依赖
 
-`install.packages(pkg, type = 'source', repos = NULL, contriburl = paste0('file:///', path))`
+pkgs <- getPackages('caret')
+path <- 'local_repos'
+
+# download dependices packages
+purrr::walk(pkgs, ~ tryCatch({
+  ver <- as.character(packageVersion(.x))
+  url1 <- glue::glue('http://mirror.lzu.edu.cn/CRAN/src/contrib/{.x}_{ver}.tar.gz')
+  url2 <- glue::glue('http://mirror.lzu.edu.cn/CRAN/src/contrib/Archive/{.x}/{.x}_{ver}.tar.gz')
+  destfile <- glue::glue('{path}/{.x}_{ver}.tar.gz')
+  tryCatch(
+    download.file(url1, destfile), 
+    error = function(e) {
+      download.file(url2, destfile)
+    }
+  )
+}, error = function(e) {
+  cat(sprintf('%s, error: %s', .x, e$message))
+}))
+
+# generate index
+tools::write_PACKAGES(path, type = 'source')
+
+# install locally
+install.packages(pkgs, type = 'source', repos = NULL, contriburl = paste0('file:///', path))
+```
+获取所需包及其依赖包，根据本地环境中各包版本下载所有的源文件到本地，然后利用`tools::write_PACKAGES()`在下载的源文件目录中生成必要的文件，如果在win平台使用该函数时一定要指明`type = 'source'`参数，R包源文件以及`write_PACKAGES`产生的文件都应在自定义镜像时复制到基础镜像中去，此外，github上的R包下载到本地后要解压，同时最好在安装github的R包之前先主动安装好其需要的依赖
+
 
 #### 特定版本R包的安装
 Docker镜像中的R环境应与开发环境保持一致，在创建Docker镜像时应指定R包的版本，保证可重复性。在Dockerfile中使用以下示例命令安装R包
