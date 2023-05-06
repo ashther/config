@@ -1,3 +1,4 @@
+```
 # Insert your preferred key mappings here.
 map e scrollPageUp
 
@@ -16,3 +17,4 @@ map s nextTab
 map w createTab https://bbs.nga.cn/thread.php?fid=7
 map n createTab https://bbs.nga.cn/thread.php?fid=-7
 map t createTab https://twitter.com/i/lists/1528226792510672896
+```
